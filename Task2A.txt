@@ -1,0 +1,29 @@
+t=int(input())
+stri=[]
+for i in range (t):
+    stri.append(input())    
+for i in range(t):
+    p=0
+    q=0
+    k=0
+    if stri[i][0]=='<':
+        p=1
+        k=1
+        while p>=q and k<len(stri[i]):
+            if stri[i][k]=='<':
+                p=p+1
+            else:
+                q=q+1
+            k=k+1
+            
+        if k%2==0:        
+            print(k)
+        else:
+            print(k-1)
+    else:
+        print(0)
+        
+        
+            
+
+        

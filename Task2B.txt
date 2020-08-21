@@ -1,0 +1,23 @@
+n=int(input())
+q=int(input())
+query=[]
+for i in range(q):
+    row = input().split()
+    for i in range(len(row)):
+        row[i] = int(row[i])
+    query.append(row)
+
+lis=[]
+for i in range(n+1):
+    lis.append(i)
+
+for i in range(q):
+    for j in range(query[i][0],query[i][1]+1):
+        lis[j]=lis[j]+query[i][2]
+print(max(lis))
+
+        
+        
+            
+
+        
