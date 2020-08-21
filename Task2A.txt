@@ -3,24 +3,24 @@ stri=[]
 for i in range (t):
     stri.append(input())    
 for i in range(t):
-    p=0
-    q=0
-    k=0
-    if stri[i][0]=='<':
-        p=1
+    p=0                                             # count for '<' char
+    q=0                                             # count for '>'
+    k=0                                             # count of total character till there is pattern 
+    if stri[i][0]=='<':                             # Becaue if it starts with '>' character then it's automatically wrong
+         p=1
         k=1
-        while p>=q and k<len(stri[i]):
-            if stri[i][k]=='<':
+        while p>=q and k<len(stri[i]):              # becaue if q>p at any moment then '>' is more than '<' this character it will automatically be wrong
+             if stri[i][k]=='<':
                 p=p+1
             else:
                 q=q+1
             k=k+1
             
-        if k%2==0:        
+        if k%2==0:                                  # It is when the entire string is correct      
             print(k)
-        else:
+        else:                                       #It is when it is somewhat correct
             print(k-1)
-    else:
+    else:                                           # When it starts with >  character
         print(0)
         
         
