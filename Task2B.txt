@@ -4,7 +4,7 @@ query=[]
 for i in range(q):
     row = input().split()
     for i in range(len(row)):
-        row[i] = int(row[i])
+        row[i] = int(row[i])                                        # Making every number to type integer from type string
     query.append(row)
 
 lis=[]
@@ -12,9 +12,9 @@ for i in range(n+1):
     lis.append(i)
 
 for i in range(q):
-    for j in range(query[i][0],query[i][1]+1):
+    for j in range(query[i][0],query[i][1]+1):                      # Adding number to every asked   number in the  list 'lis' , for every given query
         lis[j]=lis[j]+query[i][2]
-print(max(lis))
+print(max(lis))                                                     # Printing maximum number of the list
 
         
         
