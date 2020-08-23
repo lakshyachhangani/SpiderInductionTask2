@@ -1,29 +1,29 @@
-t=int(input())
-stri=[]
-for i in range (t):
-    stri.append(input())    
+t=int(input("Enter no. of test cases you want : "))
+stri=[]        
 for i in range(t):
-    p=0                                             # count for '<' char
-    q=0                                             # count for '>'
-    k=0                                             # count of total character till there is pattern 
-    if stri[i][0]=='<':                             # Becaue if it starts with '>' character then it's automatically wrong
-         p=1
+    stri.append(input())
+    p=0                                                 # count for '<' char
+    q=0                                                 # count for '>' char                                                
+    if stri[i][0]=='<':                                 # Becaue if it starts with '>' character then it's automatically wrong
+        p=1
         k=1
-        while p>=q and k<len(stri[i]):              # becaue if q>p at any moment then '>' is more than '<' this character it will automatically be wrong
-             if stri[i][k]=='<':
+        for  j in range(1,len(stri[i])):                
+            if stri[i][j]=='<':
                 p=p+1
             else:
                 q=q+1
-            k=k+1
-            
-        if k%2==0:                                  # It is when the entire string is correct      
-            print(k)
-        else:                                       #It is when it is somewhat correct
-            print(k-1)
-    else:                                           # When it starts with >  character
-        print(0)
-        
-        
-            
+            if p<q:
+                break
+            else:
+                new_str=stri[i][:j+1]                    # I am making a new string which is not correct but does not break any rule and contains the pattern
 
-        
+        if new_str.count('<')>=new_str.count('>'):
+            while new_str.count('<')!=new_str.count('>'):
+                new_str=new_str[:len(new_str)-1]          # I am making the perfect string which is the pattern by eliminating the extra '<' character
+            print("Pattern string Prefix : ",new_str)
+            print("Longest Prefix length : ",len(new_str))
+        else:
+            print("Longest Prefix length : ",0)
+    else:
+        print("Longest Prefix lenght : ",0)
+            
