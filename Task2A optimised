@@ -1,0 +1,24 @@
+t=int(input("Enter no. of test cases you want : "))
+stri=[]        
+for i in range(t):
+    stri.append(input())
+    p=0                                                     #This is the variable for adding and removing                                          
+    cnt=0                                                   # Variable for counting characters
+    maxi=0                                                  # Maximum longest prefix lenght
+    if stri[i][0]=='<':                                 
+                
+        for  j in range(0,len(stri[i])):                
+            if stri[i][j]=='<':                            # If the character is < p will be increased by 1 and decreased by 1 if character is >
+                p=p+1             
+            else:
+                p=p-1
+            if p<0:                                        # Whenever p=-1 the code will stop as the pattern has been broken
+                break
+            cnt=cnt+1
+            if p==0:                                       # At point where p=0 the prefix is correct but there can be pattern right after that like <><<>> this 
+                maxi=cnt                                   # so the maximum of both is the answer like 6 will be answer not 2 in above example
+                
+        print("Longest Prefix length : ",maxi)
+    else:
+        print("Longest Prefix lenght : ",0)
+            
